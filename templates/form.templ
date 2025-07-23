@@ -1,0 +1,65 @@
+package templates
+
+import (
+	"uptime-monitoring/models"
+	"strconv"
+)
+
+templ AddURLForm() {
+	@Layout("Add URL") {
+		<div class="max-w-md mx-auto">
+			<h2 class="text-3xl font-bold text-glow-400 glow-text mb-6">Add New URL</h2>
+			<form action="/api/urls" method="POST" class="space-y-4">
+				<div>
+					<label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+					<input type="text" id="name" name="name" required
+						class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect"
+						placeholder="My Website">
+				</div>
+				<div>
+					<label for="url" class="block text-sm font-medium text-gray-300 mb-2">URL</label>
+					<input type="url" id="url" name="url" required
+						class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect"
+						placeholder="https://example.com">
+				</div>
+				<div class="flex space-x-4">
+					<button type="submit" class="flex-1 bg-glow-600 hover:bg-glow-700 py-2 px-4 rounded-md text-white font-medium transition-colors glow-effect">
+						Add URL
+					</button>
+					<a href="/" class="flex-1 bg-gray-600 hover:bg-gray-700 py-2 px-4 rounded-md text-white font-medium text-center transition-colors">
+						Cancel
+					</a>
+				</div>
+			</form>
+		</div>
+	}
+}
+
+templ EditURLForm(url *models.URL) {
+	@Layout("Edit URL") {
+		<div class="max-w-md mx-auto">
+			<h2 class="text-3xl font-bold text-glow-400 glow-text mb-6">Edit URL</h2>
+			<form action={ templ.URL("/api/urls/" + strconv.FormatUint(uint64(url.ID), 10)) } method="POST" class="space-y-4">
+				<input type="hidden" name="_method" value="PUT">
+				<div>
+					<label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+					<input type="text" id="name" name="name" required value={ url.Name }
+						class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect">
+				</div>
+				<div>
+					<label for="url" class="block text-sm font-medium text-gray-300 mb-2">URL</label>
+					<input type="url" id="url" name="url" required value={ url.URL }
+						class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect">
+				</div>
+				<div class="flex space-x-4">
+					<button type="submit" class="flex-1 bg-glow-600 hover:bg-glow-700 py-2 px-4 rounded-md text-white font-medium transition-colors glow-effect">
+						Update URL
+					</button>
+					<a href="/" class="flex-1 bg-gray-600 hover:bg-gray-700 py-2 px-4 rounded-md text-white font-medium text-center transition-colors">
+						Cancel
+					</a>
+				</div>
+			</form>
+		</div>
+	}
+}
