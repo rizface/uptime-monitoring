@@ -1,3 +1,8 @@
+![Dashboard Screenshot](./dashboard.png)
+
+# Note
+This code is vibe coding project to help me create something to practice deployment.
+
 # Uptime Monitoring Website
 
 A modern uptime monitoring application built with Go Fiber, Tailwind CSS, and Templ template engine featuring a glow-dark theme.
