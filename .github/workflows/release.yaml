@@ -8,18 +8,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install ZIP
+        run: apt install zip
       - name: Setup golang
         uses: actions/setup-go@v5
       - name: Build
-        run: go build -o ${{github.event.release.tag_name}} .
-      - name: List
-        run: ls -l
-      - name: List release dir
-        run: ls -l ./release
+        run: go build -o release/${{github.event.release.tag_name}} .
+      - name: Archive
+        run: zip -r release-${{github.event.release.tag_name}} release
       - name: Upload uptime-monitoring binary
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          file: ${{github.event.release.tag_name}}
-          file_glob: true
+        run: gh release upload ${{github.event.release.tag_name}} release-${{github.event.release.tag_name}}
+      # - name: Upload uptime-monitoring binary
+      #   uses: svenstaro/upload-release-action@v2
+      #   with:
+      #     tag: ${{ github.ref }}
+      #     file: ./release/${{github.event.release.tag_name}}
+      #     file_glob: true
