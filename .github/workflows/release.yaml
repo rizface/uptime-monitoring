@@ -12,6 +12,10 @@ jobs:
         uses: actions/setup-go@v5
       - name: Build
         run: go build -o ${{github.event.release.tag_name}} .
+      - name: List
+        run: ls -l
+      - name: List release dir
+        run: ls -l ./release
       - name: Upload uptime-monitoring binary
         uses: svenstaro/upload-release-action@v2
         with:
