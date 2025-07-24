@@ -21,7 +21,7 @@ jobs:
         run: go build .
       - name: Deploy
         run: |
-          scp -i id_rsa \
+          scp -i homelab_key \
           -o StrictHostKeyChecking=no \
           -o ProxyCommand="cloudflared access ssh --hostname ${{secrets.SSH_HOST}} --id ${{secrets.CF_ACCESS_CLIENT_ID}} --secret ${{secrets.CF_ACCESS_CLIENT_PASSWORD}}" ./uptime-monitoring ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}:/usr/local/bin
       - name: Run
