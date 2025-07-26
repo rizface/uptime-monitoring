@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"net/http"
 	"strconv"
 	"uptime-monitoring/models"
 	"uptime-monitoring/services"
@@ -181,4 +182,11 @@ func (h *Handler) GetURL(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(url)
+}
+
+func (h *Handler) Healthcheck(c *fiber.Ctx) error {
+	return c.JSON(map[string]interface{}{
+		"status": "OK",
+		"code":   http.StatusOK,
+	})
 }

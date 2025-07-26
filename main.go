@@ -78,6 +78,7 @@ func main() {
 
 	// API routes
 	api := app.Group("/api")
+	api.Get("/healthcheck", handler.Healthcheck)
 	api.Get("/urls", handler.GetURLs)
 	api.Get("/urls/:id", handler.GetURL)
 	api.Post("/urls", handler.CreateURL)
