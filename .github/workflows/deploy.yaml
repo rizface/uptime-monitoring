@@ -1,31 +1,26 @@
 name: Deploy
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        required: true
 jobs:
   print_message:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Start
         run: echo "Deployment proces started"
       - name: Setup cloudflared
         uses: AnimMouse/setup-cloudflared@v2
-      - name: Setup golang
-        uses: actions/setup-go@v5
       - name: Create secret key to connect to ssh
         run: |
           echo "${{secrets.SSH_PRIVATE_KEY}}" > homelab_key
           chmod 600 homelab_key
-      - name: Build
-        run: go build .
-      - name: Deploy
-        run: |
-          scp -i homelab_key \
-          -o StrictHostKeyChecking=no \
-          -o ProxyCommand="cloudflared access ssh --hostname ${{secrets.SSH_HOST}} --id ${{secrets.CF_ACCESS_CLIENT_ID}} --secret ${{secrets.CF_ACCESS_CLIENT_PASSWORD}}" ./uptime-monitoring ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}:/usr/local/bin
       - name: Run
         run: |
           ssh \
           -o StrictHostKeyChecking=no \
-          -o ProxyCommand="cloudflared access ssh --hostname ${{secrets.SSH_HOST}} --id=${{secrets.CF_ACCESS_CLIENT_ID}} --secret=${{secrets.CF_ACCESS_CLIENT_PASSWORD}}" ${{secrets.SSH_USER}}@${{secrets.SSJ_HOST}} -i homelab_key 'sudo systemctl restart uptime-monitoring.service'
+          -o ProxyCommand="cloudflared access ssh --hostname ${{secrets.SSH_HOST}} --id=${{secrets.CF_ACCESS_CLIENT_ID}} --secret=${{secrets.CF_ACCESS_CLIENT_PASSWORD}}" \
+          ${{secrets.SSH_USER}}@${{secrets.SSJ_HOST}} \
+          -i homelab_key \
+          'cd /usr/local/bin && curl -L https://github.com/rizface/uptime-monitoring/releases/download/${{inputs.version}}/${{inputs.version}} > uptime-monitoring && sudo chown uptimemonitoring:uptimemonitoring uptime-monitoring && sudo chmod 744 uptime-monitoring && sudo systemctl restart uptime-monitoring.service'
