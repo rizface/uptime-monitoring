@@ -47,20 +47,20 @@ func Dashboard(urls []models.URL) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"min-h-screen bg-slate-950 p-6\"><!-- Header Section --><div class=\"mb-8\"><div class=\"flex justify-between items-center mb-2\"><h1 class=\"text-3xl font-bold text-white\">Dashboard</h1><div class=\"flex space-x-3\"><button id=\"check-all-btn\" class=\"bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-medium transition-all duration-200 shadow-lg hover:shadow-blue-500/25\">Check All</button> <button id=\"add-url-btn\" class=\"bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-white font-medium transition-all duration-200 shadow-lg hover:shadow-green-500/25\">+ Add URL</button></div></div><p class=\"text-slate-400\">Monitor your websites and APIs in real-time</p></div><!-- Stats Overview --><div class=\"grid grid-cols-1 md:grid-cols-3 gap-6 mb-8\"><div class=\"bg-slate-800 rounded-xl p-6 border border-slate-700\"><div class=\"flex items-center justify-between\"><div><p class=\"text-slate-400 text-sm font-medium\">Total URLs</p><p class=\"text-2xl font-bold text-white mt-1\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"min-h-screen\"><!-- Hero Section --><div class=\"mb-12\"><div class=\"text-center mb-8\"><h1 class=\"text-4xl md:text-5xl font-bold text-slate-100 mb-4\">Uptime <span class=\"text-accent-400\">Dashboard</span></h1><p class=\"text-slate-400 text-lg max-w-2xl mx-auto\">Monitor your websites and APIs in real-time with comprehensive uptime tracking</p></div><div class=\"flex justify-center space-x-4\"><button id=\"check-all-btn\" class=\"bg-accent-600 hover:bg-accent-700 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 glow-accent hover:scale-105 flex items-center space-x-2\"><svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15\"></path></svg> <span>Check All</span></button> <button id=\"add-url-btn\" class=\"bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 glow-green hover:scale-105 flex items-center space-x-2\"><svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 6v6m0 0v6m0-6h6m-6 0H6\"></path></svg> <span>Add URL</span></button></div></div><!-- Stats Overview --><div class=\"grid grid-cols-1 md:grid-cols-4 gap-6 mb-12\"><div class=\"glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300\"><div class=\"flex items-center justify-between mb-4\"><div class=\"bg-accent-500/20 p-3 rounded-xl\"><svg class=\"w-6 h-6 text-accent-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1\"></path></svg></div></div><div><p class=\"text-slate-400 text-sm font-medium mb-2\">Total Monitored</p><p class=\"text-3xl font-bold text-slate-100\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", len(urls)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 34, Col: 83}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 50, Col: 81}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div><div class=\"bg-blue-500/10 p-3 rounded-lg\"><svg class=\"w-6 h-6 text-blue-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1\"></path></svg></div></div></div><div class=\"bg-slate-800 rounded-xl p-6 border border-slate-700\"><div class=\"flex items-center justify-between\"><div><p class=\"text-slate-400 text-sm font-medium\">Online</p><p class=\"text-2xl font-bold text-green-400 mt-1\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</p></div></div><div class=\"glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300\"><div class=\"flex items-center justify-between mb-4\"><div class=\"bg-green-500/20 p-3 rounded-xl\"><svg class=\"w-6 h-6 text-green-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg></div></div><div><p class=\"text-slate-400 text-sm font-medium mb-2\">Online</p><p class=\"text-3xl font-bold text-green-400\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -75,13 +75,13 @@ func Dashboard(urls []models.URL) templ.Component {
 				return count
 			}()))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 56, Col: 12}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 72, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div><div class=\"bg-green-500/10 p-3 rounded-lg\"><svg class=\"w-6 h-6 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\"></path></svg></div></div></div><div class=\"bg-slate-800 rounded-xl p-6 border border-slate-700\"><div class=\"flex items-center justify-between\"><div><p class=\"text-slate-400 text-sm font-medium\">Offline</p><p class=\"text-2xl font-bold text-red-400 mt-1\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p></div></div><div class=\"glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300\"><div class=\"flex items-center justify-between mb-4\"><div class=\"bg-red-500/20 p-3 rounded-xl\"><svg class=\"w-6 h-6 text-red-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg></div></div><div><p class=\"text-slate-400 text-sm font-medium mb-2\">Offline</p><p class=\"text-3xl font-bold text-red-400\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -96,192 +96,213 @@ func Dashboard(urls []models.URL) templ.Component {
 				return count
 			}()))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 79, Col: 12}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 95, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div><div class=\"bg-red-500/10 p-3 rounded-lg\"><svg class=\"w-6 h-6 text-red-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path></svg></div></div></div></div><!-- Monitored URLs Section --><div class=\"mb-6\"><h2 class=\"text-xl font-semibold text-white mb-4\">Monitored URLs</h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div></div><div class=\"glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300\"><div class=\"flex items-center justify-between mb-4\"><div class=\"bg-orange-500/20 p-3 rounded-xl\"><svg class=\"w-6 h-6 text-orange-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z\"></path></svg></div></div><div><p class=\"text-slate-400 text-sm font-medium mb-2\">Unknown</p><p class=\"text-3xl font-bold text-orange-400\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var6 string
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", func() int {
+				count := 0
+				for _, url := range urls {
+					if url.Status != "up" && url.Status != "down" {
+						count++
+					}
+				}
+				return count
+			}()))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 118, Col: 11}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></div></div><!-- Monitored URLs Section -->")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			if len(urls) == 0 {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"bg-slate-800 rounded-xl p-12 border border-slate-700 text-center\"><div class=\"bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4\"><svg class=\"w-8 h-8 text-slate-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1\"></path></svg></div><h3 class=\"text-lg font-medium text-white mb-2\">No URLs monitored yet</h3><p class=\"text-slate-400 mb-6\">Start monitoring your websites and APIs by adding your first URL</p><button id=\"add-first-url-btn\" class=\"inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-blue-500/25\"><svg class=\"w-5 h-5 mr-2\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 6v6m0 0v6m0-6h6m-6 0H6\"></path></svg> Add Your First URL</button></div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"glass-effect rounded-3xl p-16 text-center\"><div class=\"bg-accent-500/20 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6\"><svg class=\"w-10 h-10 text-accent-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1\"></path></svg></div><h3 class=\"text-2xl font-bold text-slate-100 mb-3\">Start Monitoring</h3><p class=\"text-slate-400 text-lg mb-8 max-w-md mx-auto\">No URLs are being monitored yet. Add your first website or API to get started with uptime tracking.</p><button id=\"add-first-url-btn\" class=\"inline-flex items-center px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded-xl transition-all duration-300 glow-accent hover:scale-105\"><svg class=\"w-5 h-5 mr-3\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 6v6m0 0v6m0-6h6m-6 0H6\"></path></svg> Add Your First URL</button></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div class=\"mb-8\"><h2 class=\"text-2xl font-bold text-slate-100 mb-6 text-center\">Your Monitored URLs</h2><div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				for _, url := range urls {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div class=\"bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-slate-600 transition-all duration-200 hover:shadow-lg\"><!-- Status Indicator --><div class=\"flex items-center justify-between mb-4\"><div class=\"flex items-center space-x-2\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div class=\"glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300 group\"><!-- Status Header --><div class=\"flex items-center justify-between mb-6\"><div class=\"flex items-center space-x-3\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					if url.Status == "up" {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div class=\"w-3 h-3 bg-green-500 rounded-full animate-pulse\"></div><span class=\"text-green-400 text-sm font-medium\">Online</span>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div class=\"w-4 h-4 bg-green-500 rounded-full animate-pulse-slow\"></div><span class=\"text-green-400 font-semibold\">Online</span>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 					} else if url.Status == "down" {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div class=\"w-3 h-3 bg-red-500 rounded-full\"></div><span class=\"text-red-400 text-sm font-medium\">Offline</span>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"w-4 h-4 bg-red-500 rounded-full\"></div><span class=\"text-red-400 font-semibold\">Offline</span>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 					} else if url.Status == "unauthorized" {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div class=\"w-3 h-3 bg-orange-500 rounded-full\"></div><span class=\"text-orange-400 text-sm font-medium\">Unauthorized</span>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div class=\"w-4 h-4 bg-orange-500 rounded-full\"></div><span class=\"text-orange-400 font-semibold\">Unauthorized</span>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 					} else if url.Status == "forbidden" {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div class=\"w-3 h-3 bg-purple-500 rounded-full\"></div><span class=\"text-purple-400 text-sm font-medium\">Forbidden</span>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div class=\"w-4 h-4 bg-purple-500 rounded-full\"></div><span class=\"text-purple-400 font-semibold\">Forbidden</span>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 					} else {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div class=\"w-3 h-3 bg-yellow-500 rounded-full\"></div><span class=\"text-yellow-400 text-sm font-medium\">Unknown</span>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div class=\"w-4 h-4 bg-yellow-500 rounded-full\"></div><span class=\"text-yellow-400 font-semibold\">Unknown</span>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</div>")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div>")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					if url.ResponseTime > 0 {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<span class=\"text-slate-400 text-sm\">")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div class=\"bg-dark-700/50 px-3 py-1 rounded-full\"><span class=\"text-slate-300 text-sm font-medium\">")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
-						var templ_7745c5c3_Var6 string
-						templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%dms", url.ResponseTime))
+						var templ_7745c5c3_Var7 string
+						templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%dms", url.ResponseTime))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 135, Col: 86}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 169, Col: 99}
 						}
-						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
-						if templ_7745c5c3_Err != nil {
-							return templ_7745c5c3_Err
-						}
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</span>")
+						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</span></div>")
+						if templ_7745c5c3_Err != nil {
+							return templ_7745c5c3_Err
+						}
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div><!-- URL Info --><div class=\"mb-4\"><div class=\"flex items-center space-x-3 mb-2\"><img src=\"")
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-					var templ_7745c5c3_Var7 string
-					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs("https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + url.URL + "&size=24")
-					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 142, Col: 138}
-					}
-					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "\" alt=\"Website icon\" class=\"w-6 h-6 rounded-sm flex-shrink-0\" onerror=\"this.style.display='none'\"><h3 class=\"text-lg font-semibold text-white truncate\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</div><!-- URL Info --><div class=\"mb-6\"><div class=\"flex items-center space-x-3 mb-3\"><div class=\"w-10 h-10 bg-dark-700 rounded-xl flex items-center justify-center flex-shrink-0\"><img src=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					var templ_7745c5c3_Var8 string
-					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(url.Name)
+					templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs("https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=" + url.URL + "&size=24")
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 143, Col: 74}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 178, Col: 139}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</h3></div><p class=\"text-slate-400 text-sm truncate ml-9\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "\" alt=\"Website icon\" class=\"w-6 h-6 rounded-sm\" onerror=\"this.style.display='none'\"> <svg class=\"w-5 h-5 text-slate-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" style=\"display: none;\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9\"></path></svg></div><div class=\"flex-1 min-w-0\"><h3 class=\"text-lg font-bold text-slate-100 truncate\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					var templ_7745c5c3_Var9 string
-					templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(url.URL)
+					templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(url.Name)
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 145, Col: 66}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 184, Col: 75}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</p></div><!-- Last Checked -->")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</h3><p class=\"text-slate-400 text-sm truncate\">")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var10 string
+					templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(url.URL)
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 185, Col: 63}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</p></div></div></div><!-- Last Checked -->")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					if url.LastChecked != nil {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "<div class=\"mb-4\"><p class=\"text-slate-500 text-xs\">Last checked</p><p class=\"text-slate-400 text-sm\">")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div class=\"mb-6 bg-dark-800/30 rounded-xl p-3\"><p class=\"text-slate-500 text-xs font-medium mb-1\">LAST CHECKED</p><p class=\"text-slate-300 text-sm font-medium\">")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
-						var templ_7745c5c3_Var10 string
-						templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(url.LastChecked.Format("Jan 2, 15:04"))
+						var templ_7745c5c3_Var11 string
+						templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(url.LastChecked.Format("Jan 2, 15:04"))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 152, Col: 84}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 194, Col: 96}
 						}
-						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
-						if templ_7745c5c3_Err != nil {
-							return templ_7745c5c3_Err
-						}
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p></div>")
+						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p></div>")
+						if templ_7745c5c3_Err != nil {
+							return templ_7745c5c3_Err
+						}
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "<!-- Action Buttons --><div class=\"flex space-x-2\"><button data-check-url=\"")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<!-- Action Buttons --><div class=\"flex space-x-2\"><button data-check-url=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					var templ_7745c5c3_Var11 string
-					templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatUint(uint64(url.ID), 10))
+					var templ_7745c5c3_Var12 string
+					templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatUint(uint64(url.ID), 10))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 158, Col: 72}
-					}
-					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "\" class=\"check-url-btn flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-3 rounded-lg transition-all duration-200 font-medium\">Check</button> <a href=\"")
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-					var templ_7745c5c3_Var12 templ.SafeURL
-					templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/edit/" + strconv.FormatUint(uint64(url.ID), 10)))
-					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 161, Col: 79}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 200, Col: 72}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "\" class=\"flex-1 bg-slate-600 hover:bg-slate-700 text-white text-sm py-2 px-3 rounded-lg transition-all duration-200 font-medium text-center\">Edit</a> <button data-delete-url=\"")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "\" class=\"check-url-btn flex-1 bg-accent-600 hover:bg-accent-700 text-white text-sm py-3 px-4 rounded-xl transition-all duration-300 font-semibold hover:scale-105\">Check Now</button> <a href=\"")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					var templ_7745c5c3_Var13 string
-					templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatUint(uint64(url.ID), 10))
+					var templ_7745c5c3_Var13 templ.SafeURL
+					templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/edit/" + strconv.FormatUint(uint64(url.ID), 10)))
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 164, Col: 73}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 203, Col: 79}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "\" class=\"delete-url-btn bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-3 rounded-lg transition-all duration-200\"><svg class=\"w-4 h-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16\"></path></svg></button></div></div>")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "\" class=\"flex-1 bg-dark-700 hover:bg-dark-600 text-white text-sm py-3 px-4 rounded-xl transition-all duration-300 font-semibold text-center hover:scale-105\">Edit</a> <button data-delete-url=\"")
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					var templ_7745c5c3_Var14 string
+					templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.FormatUint(uint64(url.ID), 10))
+					if templ_7745c5c3_Err != nil {
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/dashboard.templ`, Line: 206, Col: 73}
+					}
+					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
+					if templ_7745c5c3_Err != nil {
+						return templ_7745c5c3_Err
+					}
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "\" class=\"delete-url-btn bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105\"><svg class=\"w-4 h-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16\"></path></svg></button></div></div>")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 				}
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</div>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</div></div>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</div><!-- Add URL Modal --><div id=\"add-url-modal\" class=\"fixed inset-0 bg-black bg-opacity-50 hidden z-50\"><div class=\"flex items-center justify-center min-h-screen p-4\"><div class=\"bg-slate-800 rounded-xl p-6 w-full max-w-md border border-slate-700\"><div class=\"flex justify-between items-center mb-4\"><h3 class=\"text-lg font-semibold text-white\">Add New URL</h3><button id=\"close-modal\" class=\"text-slate-400 hover:text-white\"><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path></svg></button></div><form action=\"/add\" method=\"POST\" class=\"space-y-4\"><div><label for=\"name\" class=\"block text-sm font-medium text-slate-300 mb-2\">Name</label> <input type=\"text\" id=\"name\" name=\"name\" required class=\"w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent\" placeholder=\"My Website\"></div><div><label for=\"url\" class=\"block text-sm font-medium text-slate-300 mb-2\">URL</label> <input type=\"url\" id=\"url\" name=\"url\" required class=\"w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent\" placeholder=\"https://example.com\"></div><div><label for=\"check_interval\" class=\"block text-sm font-medium text-slate-300 mb-2\">Check Interval (seconds)</label> <input type=\"number\" id=\"check_interval\" name=\"check_interval\" min=\"60\" value=\"300\" class=\"w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent\"></div><div class=\"flex space-x-3 pt-4\"><button type=\"button\" id=\"cancel-modal\" class=\"flex-1 px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-all duration-200\">Cancel</button> <button type=\"submit\" class=\"flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200\">Add URL</button></div></form></div></div></div><!-- Delete Confirmation Modal --><div id=\"delete-modal\" class=\"fixed inset-0 bg-black bg-opacity-50 hidden z-50\"><div class=\"flex items-center justify-center min-h-screen p-4\"><div class=\"bg-slate-800 rounded-xl p-6 w-full max-w-md border border-slate-700\"><div class=\"flex items-center mb-4\"><div class=\"w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4\"><svg class=\"w-6 h-6 text-red-600\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z\"></path></svg></div><div><h3 class=\"text-lg font-semibold text-white mb-1\">Delete URL</h3><p class=\"text-slate-400 text-sm\">Are you sure you want to delete this URL? This action cannot be undone.</p></div></div><div class=\"flex space-x-3 pt-4\"><button type=\"button\" id=\"cancel-delete\" class=\"flex-1 px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-all duration-200\">Cancel</button> <button type=\"button\" id=\"confirm-delete\" class=\"flex-1 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-all duration-200\">Delete</button></div></div></div></div></div><script>\n\t\t\t// Modal functionality\n\t\t\tconst modal = document.getElementById('add-url-modal');\n\t\t\tconst addUrlBtn = document.getElementById('add-url-btn');\n\t\t\tconst addFirstUrlBtn = document.getElementById('add-first-url-btn');\n\t\t\tconst closeModal = document.getElementById('close-modal');\n\t\t\tconst cancelModal = document.getElementById('cancel-modal');\n\n\t\t\t// Delete modal functionality\n\t\t\tconst deleteModal = document.getElementById('delete-modal');\n\t\t\tconst cancelDelete = document.getElementById('cancel-delete');\n\t\t\tconst confirmDelete = document.getElementById('confirm-delete');\n\t\t\tlet urlToDelete = null;\n\n\t\t\t// Open modal\n\t\t\tif (addUrlBtn) {\n\t\t\t\taddUrlBtn.addEventListener('click', () => {\n\t\t\t\t\tmodal.classList.remove('hidden');\n\t\t\t\t});\n\t\t\t}\n\n\t\t\tif (addFirstUrlBtn) {\n\t\t\t\taddFirstUrlBtn.addEventListener('click', () => {\n\t\t\t\t\tmodal.classList.remove('hidden');\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t// Close modal\n\t\t\tcloseModal.addEventListener('click', () => {\n\t\t\t\tmodal.classList.add('hidden');\n\t\t\t});\n\n\t\t\tcancelModal.addEventListener('click', () => {\n\t\t\t\tmodal.classList.add('hidden');\n\t\t\t});\n\n\t\t\t// Close modal when clicking outside\n\t\t\tmodal.addEventListener('click', (e) => {\n\t\t\t\tif (e.target === modal) {\n\t\t\t\t\tmodal.classList.add('hidden');\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Delete modal event listeners\n\t\t\tcancelDelete.addEventListener('click', () => {\n\t\t\t\tdeleteModal.classList.add('hidden');\n\t\t\t\turlToDelete = null;\n\t\t\t});\n\n\t\t\tconfirmDelete.addEventListener('click', async () => {\n\t\t\t\tif (urlToDelete) {\n\t\t\t\t\ttry {\n\t\t\t\t\t\tconst response = await fetch(`/api/urls/${urlToDelete}`, { method: 'DELETE' });\n\t\t\t\t\t\tif (response.ok) {\n\t\t\t\t\t\t\tlocation.reload();\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\talert('Failed to delete URL');\n\t\t\t\t\t\t}\n\t\t\t\t\t} catch (error) {\n\t\t\t\t\t\talert('Error deleting URL');\n\t\t\t\t\t}\n\t\t\t\t\tdeleteModal.classList.add('hidden');\n\t\t\t\t\turlToDelete = null;\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Close delete modal when clicking outside\n\t\t\tdeleteModal.addEventListener('click', (e) => {\n\t\t\t\tif (e.target === deleteModal) {\n\t\t\t\t\tdeleteModal.classList.add('hidden');\n\t\t\t\t\turlToDelete = null;\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Existing functionality\n\t\t\tdocument.addEventListener('DOMContentLoaded', function() {\n\t\t\t\t// Check single URL\n\t\t\t\tdocument.querySelectorAll('.check-url-btn').forEach(btn => {\n\t\t\t\t\tbtn.addEventListener('click', async function() {\n\t\t\t\t\t\tconst id = this.getAttribute('data-check-url');\n\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tconst response = await fetch(`/api/check/${id}`, { method: 'POST' });\n\t\t\t\t\t\t\tif (response.ok) {\n\t\t\t\t\t\t\t\tlocation.reload();\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\talert('Failed to check URL');\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} catch (error) {\n\t\t\t\t\t\t\talert('Error checking URL');\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\t\t});\n\n\t\t\t\t// Check all URLs\n\t\t\t\tconst checkAllBtn = document.getElementById('check-all-btn');\n\t\t\t\tif (checkAllBtn) {\n\t\t\t\t\tcheckAllBtn.addEventListener('click', async function() {\n\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tconst response = await fetch('/api/check-all', { method: 'POST' });\n\t\t\t\t\t\t\tif (response.ok) {\n\t\t\t\t\t\t\t\tlocation.reload();\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\talert('Failed to check URLs');\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} catch (error) {\n\t\t\t\t\t\t\talert('Error checking URLs');\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\t\t}\n\n\t\t\t\t// Delete URL\n\t\t\t\tdocument.querySelectorAll('.delete-url-btn').forEach(btn => {\n\t\t\t\t\tbtn.addEventListener('click', function() {\n\t\t\t\t\t\tconst id = this.getAttribute('data-delete-url');\n\t\t\t\t\t\turlToDelete = id;\n\t\t\t\t\t\tdeleteModal.classList.remove('hidden');\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t});\n\t\t</script>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "<!-- Add URL Modal --><div id=\"add-url-modal\" class=\"fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50\"><div class=\"flex items-center justify-center min-h-screen p-4\"><div class=\"glass-effect rounded-2xl p-8 w-full max-w-md animate-in\"><div class=\"flex justify-between items-center mb-6\"><h3 class=\"text-xl font-bold text-slate-100\">Add New URL</h3><button id=\"close-modal\" class=\"text-slate-400 hover:text-white transition-colors p-2 hover:bg-dark-700 rounded-lg\"><svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path></svg></button></div><form action=\"/add\" method=\"POST\" class=\"space-y-5\"><div><label for=\"name\" class=\"block text-sm font-semibold text-slate-200 mb-2\">Website Name</label> <input type=\"text\" id=\"name\" name=\"name\" required class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\" placeholder=\"My Website\"></div><div><label for=\"url\" class=\"block text-sm font-semibold text-slate-200 mb-2\">URL</label> <input type=\"url\" id=\"url\" name=\"url\" required class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\" placeholder=\"https://example.com\"></div><div><label for=\"check_interval\" class=\"block text-sm font-semibold text-slate-200 mb-2\">Check Interval (seconds)</label> <input type=\"number\" id=\"check_interval\" name=\"check_interval\" min=\"60\" value=\"300\" class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\"></div><div class=\"flex space-x-3 pt-4\"><button type=\"button\" id=\"cancel-modal\" class=\"flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-xl transition-all duration-300 font-semibold\">Cancel</button> <button type=\"submit\" class=\"flex-1 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white rounded-xl transition-all duration-300 font-semibold glow-accent\">Add URL</button></div></form></div></div></div><!-- Delete Confirmation Modal --><div id=\"delete-modal\" class=\"fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50\"><div class=\"flex items-center justify-center min-h-screen p-4\"><div class=\"glass-effect rounded-2xl p-8 w-full max-w-md\"><div class=\"flex items-center mb-6\"><div class=\"w-14 h-14 bg-red-500/20 rounded-2xl flex items-center justify-center mr-4\"><svg class=\"w-7 h-7 text-red-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z\"></path></svg></div><div><h3 class=\"text-xl font-bold text-slate-100 mb-2\">Delete URL</h3><p class=\"text-slate-400\">Are you sure you want to delete this URL? This action cannot be undone.</p></div></div><div class=\"flex space-x-3\"><button type=\"button\" id=\"cancel-delete\" class=\"flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-xl transition-all duration-300 font-semibold\">Cancel</button> <button type=\"button\" id=\"confirm-delete\" class=\"flex-1 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-all duration-300 font-semibold glow-red\">Delete</button></div></div></div></div></div><script>\n\t\t\t// Modal functionality\n\t\t\tconst modal = document.getElementById('add-url-modal');\n\t\t\tconst addUrlBtn = document.getElementById('add-url-btn');\n\t\t\tconst addFirstUrlBtn = document.getElementById('add-first-url-btn');\n\t\t\tconst closeModal = document.getElementById('close-modal');\n\t\t\tconst cancelModal = document.getElementById('cancel-modal');\n\n\t\t\t// Delete modal functionality\n\t\t\tconst deleteModal = document.getElementById('delete-modal');\n\t\t\tconst cancelDelete = document.getElementById('cancel-delete');\n\t\t\tconst confirmDelete = document.getElementById('confirm-delete');\n\t\t\tlet urlToDelete = null;\n\n\t\t\t// Open modal\n\t\t\tif (addUrlBtn) {\n\t\t\t\taddUrlBtn.addEventListener('click', () => {\n\t\t\t\t\tmodal.classList.remove('hidden');\n\t\t\t\t});\n\t\t\t}\n\n\t\t\tif (addFirstUrlBtn) {\n\t\t\t\taddFirstUrlBtn.addEventListener('click', () => {\n\t\t\t\t\tmodal.classList.remove('hidden');\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t// Close modal\n\t\t\tcloseModal.addEventListener('click', () => {\n\t\t\t\tmodal.classList.add('hidden');\n\t\t\t});\n\n\t\t\tcancelModal.addEventListener('click', () => {\n\t\t\t\tmodal.classList.add('hidden');\n\t\t\t});\n\n\t\t\t// Close modal when clicking outside\n\t\t\tmodal.addEventListener('click', (e) => {\n\t\t\t\tif (e.target === modal) {\n\t\t\t\t\tmodal.classList.add('hidden');\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Delete modal event listeners\n\t\t\tcancelDelete.addEventListener('click', () => {\n\t\t\t\tdeleteModal.classList.add('hidden');\n\t\t\t\turlToDelete = null;\n\t\t\t});\n\n\t\t\tconfirmDelete.addEventListener('click', async () => {\n\t\t\t\tif (urlToDelete) {\n\t\t\t\t\ttry {\n\t\t\t\t\t\tconst response = await fetch(`/api/urls/${urlToDelete}`, { method: 'DELETE' });\n\t\t\t\t\t\tif (response.ok) {\n\t\t\t\t\t\t\tlocation.reload();\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\talert('Failed to delete URL');\n\t\t\t\t\t\t}\n\t\t\t\t\t} catch (error) {\n\t\t\t\t\t\talert('Error deleting URL');\n\t\t\t\t\t}\n\t\t\t\t\tdeleteModal.classList.add('hidden');\n\t\t\t\t\turlToDelete = null;\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Close delete modal when clicking outside\n\t\t\tdeleteModal.addEventListener('click', (e) => {\n\t\t\t\tif (e.target === deleteModal) {\n\t\t\t\t\tdeleteModal.classList.add('hidden');\n\t\t\t\t\turlToDelete = null;\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t// Existing functionality\n\t\t\tdocument.addEventListener('DOMContentLoaded', function() {\n\t\t\t\t// Check single URL\n\t\t\t\tdocument.querySelectorAll('.check-url-btn').forEach(btn => {\n\t\t\t\t\tbtn.addEventListener('click', async function() {\n\t\t\t\t\t\tconst id = this.getAttribute('data-check-url');\n\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tconst response = await fetch(`/api/check/${id}`, { method: 'POST' });\n\t\t\t\t\t\t\tif (response.ok) {\n\t\t\t\t\t\t\t\tlocation.reload();\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\talert('Failed to check URL');\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} catch (error) {\n\t\t\t\t\t\t\talert('Error checking URL');\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\t\t});\n\n\t\t\t\t// Check all URLs\n\t\t\t\tconst checkAllBtn = document.getElementById('check-all-btn');\n\t\t\t\tif (checkAllBtn) {\n\t\t\t\t\tcheckAllBtn.addEventListener('click', async function() {\n\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tconst response = await fetch('/api/check-all', { method: 'POST' });\n\t\t\t\t\t\t\tif (response.ok) {\n\t\t\t\t\t\t\t\tlocation.reload();\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\talert('Failed to check URLs');\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} catch (error) {\n\t\t\t\t\t\t\talert('Error checking URLs');\n\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\t\t}\n\n\t\t\t\t// Delete URL\n\t\t\t\tdocument.querySelectorAll('.delete-url-btn').forEach(btn => {\n\t\t\t\t\tbtn.addEventListener('click', function() {\n\t\t\t\t\t\tconst id = this.getAttribute('data-delete-url');\n\t\t\t\t\t\turlToDelete = id;\n\t\t\t\t\t\tdeleteModal.classList.remove('hidden');\n\t\t\t\t\t});\n\t\t\t\t});\n\t\t\t});\n\t\t</script>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -14,7 +14,21 @@ templ Layout(title string) {
 					theme: {
 						extend: {
 							colors: {
-								'glow': {
+								'dark': {
+									50: '#f8fafc',
+									100: '#f1f5f9',
+									200: '#e2e8f0',
+									300: '#cbd5e1',
+									400: '#94a3b8',
+									500: '#64748b',
+									600: '#475569',
+									700: '#334155',
+									800: '#1e293b',
+									850: '#172033',
+									900: '#0f172a',
+									950: '#020617',
+								},
+								'accent': {
 									50: '#f0f9ff',
 									100: '#e0f2fe',
 									200: '#bae6fd',
@@ -32,40 +46,68 @@ templ Layout(title string) {
 				}
 			</script>
 			<style>
-				.glow-effect {
-					box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+				@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+				
+				* {
+					font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 				}
-				.glow-text {
-					text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+				
+				body {
+					background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+					min-height: 100vh;
 				}
-				.status-up {
-					color: #10b981;
-					text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+				
+				.glass-effect {
+					background: rgba(30, 41, 59, 0.4);
+					backdrop-filter: blur(16px);
+					-webkit-backdrop-filter: blur(16px);
+					border: 1px solid rgba(148, 163, 184, 0.1);
 				}
-				.status-down {
-					color: #ef4444;
-					text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+				
+				.glow-accent {
+					box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
 				}
-				.status-unknown {
-					color: #f59e0b;
-					text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+				
+				.glow-green {
+					box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+				}
+				
+				.glow-red {
+					box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+				}
+				
+				.animate-pulse-slow {
+					animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+				}
+				
+				.grid-pattern {
+					background-image: 
+						linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+						linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+					background-size: 50px 50px;
 				}
 			</style>
 		</head>
-		<body class="bg-slate-950 text-white min-h-screen">
-			<nav class="bg-slate-900 border-b border-slate-700">
+		<body class="bg-dark-950 text-slate-100 min-h-screen grid-pattern">
+			<nav class="glass-effect sticky top-0 z-40">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div class="flex justify-between h-16">
-						<div class="flex items-center">
-							<h1 class="text-xl font-bold text-blue-400">Uptime Monitor</h1>
+					<div class="flex justify-between items-center h-16">
+						<div class="flex items-center space-x-3">
+							<div class="w-8 h-8 bg-accent-500 rounded-lg flex items-center justify-center">
+								<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+								</svg>
+							</div>
+							<h1 class="text-xl font-bold text-slate-100">Uptime Monitor</h1>
 						</div>
-						<div class="flex items-center space-x-4">
-							<a href="/" class="text-slate-300 hover:text-blue-400 transition-colors">Dashboard</a>
+						<div class="flex items-center space-x-6">
+							<a href="/" class="text-slate-300 hover:text-accent-400 transition-colors duration-200 font-medium">Dashboard</a>
+							<div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
 						</div>
 					</div>
 				</div>
 			</nav>
-			<main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+			<main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
 				{ children... }
 			</main>
 		</body>
