@@ -46,7 +46,7 @@ func AddURLForm() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-md mx-auto\"><h2 class=\"text-3xl font-bold text-glow-400 glow-text mb-6\">Add New URL</h2><form action=\"/api/urls\" method=\"POST\" class=\"space-y-4\"><div><label for=\"name\" class=\"block text-sm font-medium text-gray-300 mb-2\">Name</label> <input type=\"text\" id=\"name\" name=\"name\" required class=\"w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect\" placeholder=\"My Website\"></div><div><label for=\"url\" class=\"block text-sm font-medium text-gray-300 mb-2\">URL</label> <input type=\"url\" id=\"url\" name=\"url\" required class=\"w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect\" placeholder=\"https://example.com\"></div><div class=\"flex space-x-4\"><button type=\"submit\" class=\"flex-1 bg-glow-600 hover:bg-glow-700 py-2 px-4 rounded-md text-white font-medium transition-colors glow-effect\">Add URL</button> <a href=\"/\" class=\"flex-1 bg-gray-600 hover:bg-gray-700 py-2 px-4 rounded-md text-white font-medium text-center transition-colors\">Cancel</a></div></form></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-2xl mx-auto\"><div class=\"glass-effect rounded-3xl p-8\"><div class=\"text-center mb-8\"><h2 class=\"text-3xl font-bold text-slate-100 mb-2\">Add New URL</h2><p class=\"text-slate-400\">Start monitoring a new website or API endpoint</p></div><form action=\"/api/urls\" method=\"POST\" class=\"space-y-6\"><div><label for=\"name\" class=\"block text-sm font-semibold text-slate-200 mb-3\">Website Name</label> <input type=\"text\" id=\"name\" name=\"name\" required class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\" placeholder=\"My Website\"></div><div><label for=\"url\" class=\"block text-sm font-semibold text-slate-200 mb-3\">URL</label> <input type=\"url\" id=\"url\" name=\"url\" required class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\" placeholder=\"https://example.com\"></div><div><label for=\"check_interval\" class=\"block text-sm font-semibold text-slate-200 mb-3\">Check Interval (seconds)</label> <input type=\"number\" id=\"check_interval\" name=\"check_interval\" min=\"60\" value=\"300\" class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\" placeholder=\"300\"></div><div class=\"flex space-x-4 pt-6\"><a href=\"/\" class=\"flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white font-semibold text-center rounded-xl transition-all duration-300\">Cancel</a> <button type=\"submit\" class=\"flex-1 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded-xl transition-all duration-300 glow-accent\">Add URL</button></div></form></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -93,46 +93,59 @@ func EditURLForm(url *models.URL) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-md mx-auto\"><h2 class=\"text-3xl font-bold text-glow-400 glow-text mb-6\">Edit URL</h2><form action=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"max-w-2xl mx-auto\"><div class=\"glass-effect rounded-3xl p-8\"><div class=\"text-center mb-8\"><h2 class=\"text-3xl font-bold text-slate-100 mb-2\">Edit URL</h2><p class=\"text-slate-400\">Update monitoring settings for your website</p></div><form action=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 templ.SafeURL
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.URL("/api/urls/" + strconv.FormatUint(uint64(url.ID), 10)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 42, Col: 82}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 57, Col: 83}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" method=\"POST\" class=\"space-y-4\"><input type=\"hidden\" name=\"_method\" value=\"PUT\"><div><label for=\"name\" class=\"block text-sm font-medium text-gray-300 mb-2\">Name</label> <input type=\"text\" id=\"name\" name=\"name\" required value=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" method=\"POST\" class=\"space-y-6\"><input type=\"hidden\" name=\"_method\" value=\"PUT\"><div><label for=\"name\" class=\"block text-sm font-semibold text-slate-200 mb-3\">Website Name</label> <input type=\"text\" id=\"name\" name=\"name\" required value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(url.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 46, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 61, Col: 72}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" class=\"w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect\"></div><div><label for=\"url\" class=\"block text-sm font-medium text-gray-300 mb-2\">URL</label> <input type=\"url\" id=\"url\" name=\"url\" required value=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\"></div><div><label for=\"url\" class=\"block text-sm font-semibold text-slate-200 mb-3\">URL</label> <input type=\"url\" id=\"url\" name=\"url\" required value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(url.URL)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 51, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 66, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\" class=\"w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-glow-500 focus:border-transparent glow-effect\"></div><div class=\"flex space-x-4\"><button type=\"submit\" class=\"flex-1 bg-glow-600 hover:bg-glow-700 py-2 px-4 rounded-md text-white font-medium transition-colors glow-effect\">Update URL</button> <a href=\"/\" class=\"flex-1 bg-gray-600 hover:bg-gray-700 py-2 px-4 rounded-md text-white font-medium text-center transition-colors\">Cancel</a></div></form></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "\" class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\"></div><div><label for=\"check_interval\" class=\"block text-sm font-semibold text-slate-200 mb-3\">Check Interval (seconds)</label> <input type=\"number\" id=\"check_interval\" name=\"check_interval\" min=\"60\" value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var8 string
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(url.CheckInterval))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/form.templ`, Line: 71, Col: 117}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" class=\"w-full px-4 py-3 bg-dark-800/50 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all\"></div><div class=\"flex space-x-4 pt-6\"><a href=\"/\" class=\"flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white font-semibold text-center rounded-xl transition-all duration-300\">Cancel</a> <button type=\"submit\" class=\"flex-1 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded-xl transition-all duration-300 glow-accent\">Update URL</button></div></form></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
