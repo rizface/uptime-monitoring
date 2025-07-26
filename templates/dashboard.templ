@@ -21,10 +21,13 @@ templ Dashboard(urls []models.URL) {
 				</div>
 				<div class="flex justify-center space-x-4">
 					<button id="check-all-btn" class="bg-accent-600 hover:bg-accent-700 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 glow-accent hover:scale-105 flex items-center space-x-2">
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg id="check-all-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
 						</svg>
-						<span>Check All</span>
+						<svg id="check-all-spinner" class="w-5 h-5 loading-spinner hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+						</svg>
+						<span id="check-all-text">Check All</span>
 					</button>
 					<button id="add-url-btn" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl text-white font-semibold transition-all duration-300 glow-green hover:scale-105 flex items-center space-x-2">
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,7 +146,7 @@ templ Dashboard(urls []models.URL) {
 					<h2 class="text-2xl font-bold text-slate-100 mb-6 text-center">Your Monitored URLs</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 						for _, url := range urls {
-							<div class="glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300 group">
+							<div class="glass-effect rounded-2xl p-6 hover:bg-dark-800/50 transition-all duration-300 group" data-url-id={ strconv.FormatUint(uint64(url.ID), 10) }>
 								<!-- Status Header -->
 								<div class="flex items-center justify-between mb-6">
 									<div class="flex items-center space-x-3">
@@ -197,8 +200,15 @@ templ Dashboard(urls []models.URL) {
 
 								<!-- Action Buttons -->
 								<div class="flex space-x-2">
-									<button data-check-url={ strconv.FormatUint(uint64(url.ID), 10) } class="check-url-btn flex-1 bg-accent-600 hover:bg-accent-700 text-white text-sm py-3 px-4 rounded-xl transition-all duration-300 font-semibold hover:scale-105">
-										Check Now
+									<button data-check-url={ strconv.FormatUint(uint64(url.ID), 10) } class="check-url-btn flex-1 bg-accent-600 hover:bg-accent-700 text-white text-sm py-3 px-4 rounded-xl transition-all duration-300 font-semibold hover:scale-105 flex items-center justify-center space-x-2">
+										<svg class="check-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+										</svg>
+										<svg class="check-spinner w-4 h-4 loading-spinner hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<circle cx="12" cy="12" r="10"></circle>
+											<path d="M8 12l2 2 4-4"></path>
+										</svg>
+										<span class="check-text">Check Now</span>
 									</button>
 									<a href={ templ.URL("/edit/" + strconv.FormatUint(uint64(url.ID), 10)) } class="flex-1 bg-dark-700 hover:bg-dark-600 text-white text-sm py-3 px-4 rounded-xl transition-all duration-300 font-semibold text-center hover:scale-105">
 										Edit
@@ -347,20 +357,95 @@ templ Dashboard(urls []models.URL) {
 				}
 			});
 
+			// Loading state management
+			function setCardLoading(urlId, isLoading) {
+				const card = document.querySelector(`[data-url-id="${urlId}"]`);
+				if (!card) return;
+				
+				if (isLoading) {
+					card.classList.add('card-checking');
+				} else {
+					card.classList.remove('card-checking');
+				}
+			}
+			
+			function setButtonLoading(button, isLoading) {
+				const icon = button.querySelector('.check-icon');
+				const spinner = button.querySelector('.check-spinner');
+				const text = button.querySelector('.check-text');
+				
+				if (isLoading) {
+					icon.classList.add('hidden');
+					spinner.classList.remove('hidden');
+					text.textContent = 'Checking...';
+					button.disabled = true;
+					button.classList.add('opacity-75', 'cursor-not-allowed');
+				} else {
+					icon.classList.remove('hidden');
+					spinner.classList.add('hidden');
+					text.textContent = 'Check Now';
+					button.disabled = false;
+					button.classList.remove('opacity-75', 'cursor-not-allowed');
+				}
+			}
+			
+			function setCheckAllLoading(isLoading) {
+				const button = document.getElementById('check-all-btn');
+				const icon = document.getElementById('check-all-icon');
+				const spinner = document.getElementById('check-all-spinner');
+				const text = document.getElementById('check-all-text');
+				
+				if (isLoading) {
+					icon.classList.add('hidden');
+					spinner.classList.remove('hidden');
+					text.textContent = 'Checking All...';
+					button.disabled = true;
+					button.classList.add('opacity-75', 'cursor-not-allowed');
+					
+					// Add loading state to all cards
+					document.querySelectorAll('[data-url-id]').forEach(card => {
+						card.classList.add('card-checking');
+					});
+				} else {
+					icon.classList.remove('hidden');
+					spinner.classList.add('hidden');
+					text.textContent = 'Check All';
+					button.disabled = false;
+					button.classList.remove('opacity-75', 'cursor-not-allowed');
+					
+					// Remove loading state from all cards
+					document.querySelectorAll('[data-url-id]').forEach(card => {
+						card.classList.remove('card-checking');
+					});
+				}
+			}
+
 			// Existing functionality
 			document.addEventListener('DOMContentLoaded', function() {
 				// Check single URL
 				document.querySelectorAll('.check-url-btn').forEach(btn => {
 					btn.addEventListener('click', async function() {
 						const id = this.getAttribute('data-check-url');
+						
+						// Set loading state
+						setButtonLoading(this, true);
+						setCardLoading(id, true);
+						
 						try {
 							const response = await fetch(`/api/check/${id}`, { method: 'POST' });
 							if (response.ok) {
-								location.reload();
+								// Small delay to show the loading animation
+								setTimeout(() => {
+									location.reload();
+								}, 500);
 							} else {
+								setButtonLoading(this, false);
+								setCardLoading(id, false);
 								alert('Failed to check URL');
 							}
 						} catch (error) {
+							setButtonLoading(this, false);
+							setCardLoading(id, false);
 							alert('Error checking URL');
 						}
 					});
@@ -370,14 +455,22 @@ templ Dashboard(urls []models.URL) {
 				const checkAllBtn = document.getElementById('check-all-btn');
 				if (checkAllBtn) {
 					checkAllBtn.addEventListener('click', async function() {
+						// Set loading state
+						setCheckAllLoading(true);
+						
 						try {
 							const response = await fetch('/api/check-all', { method: 'POST' });
 							if (response.ok) {
-								location.reload();
+								// Small delay to show the loading animation
+								setTimeout(() => {
+									location.reload();
+								}, 1000);
 							} else {
+								setCheckAllLoading(false);
 								alert('Failed to check URLs');
 							}
 						} catch (error) {
+							setCheckAllLoading(false);
 							alert('Error checking URLs');
 						}
 					});

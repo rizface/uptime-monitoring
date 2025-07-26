@@ -86,6 +86,59 @@ templ Layout(title string) {
 						linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
 					background-size: 50px 50px;
 				}
+				
+				/* Loading animations */
+				.loading-spinner {
+					animation: spin 1s linear infinite;
+				}
+				
+				.loading-pulse {
+					animation: loading-pulse 1.5s ease-in-out infinite;
+				}
+				
+				.loading-shimmer {
+					background: linear-gradient(90deg, rgba(30, 41, 59, 0.4) 25%, rgba(51, 65, 85, 0.6) 50%, rgba(30, 41, 59, 0.4) 75%);
+					background-size: 200% 100%;
+					animation: shimmer 2s infinite;
+				}
+				
+				@keyframes spin {
+					0% { transform: rotate(0deg); }
+					100% { transform: rotate(360deg); }
+				}
+				
+				@keyframes loading-pulse {
+					0%, 100% { opacity: 0.4; }
+					50% { opacity: 1; }
+				}
+				
+				@keyframes shimmer {
+					0% { background-position: -200% 0; }
+					100% { background-position: 200% 0; }
+				}
+				
+				/* Card loading state */
+				.card-checking {
+					position: relative;
+					overflow: hidden;
+				}
+				
+				.card-checking::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: -100%;
+					width: 100%;
+					height: 100%;
+					background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+					animation: scan 2s infinite;
+					z-index: 1;
+				}
+				
+				@keyframes scan {
+					0% { left: -100%; }
+					100% { left: 100%; }
+				}
 			</style>
 		</head>
 		<body class="bg-dark-950 text-slate-100 min-h-screen grid-pattern">
