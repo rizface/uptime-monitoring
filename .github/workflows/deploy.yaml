@@ -22,4 +22,4 @@ jobs:
           -o StrictHostKeyChecking=no \
           -o ProxyCommand="cloudflared access ssh --hostname ${{secrets.SSH_HOST}} --id=${{secrets.CF_ACCESS_CLIENT_ID}} --secret=${{secrets.CF_ACCESS_CLIENT_PASSWORD}}" \
           -i homelab_key \
-          ${{secrets.SSH_USER}}@${{secrets.SSJ_HOST}} 'cd /usr/local/bin && rm -rf uptime-monitoring && curl -L https://github.com/rizface/uptime-monitoring/releases/download/${{inputs.version}}/${{inputs.version}} > uptime-monitoring && sudo chmod 744 uptime-monitoring && sudo systemctl restart uptime-monitoring.service'
+          ${{secrets.SSH_USER}}@${{secrets.SSJ_HOST}} 'cd /usr/local/bin && rm -rf uptime-monitoring && curl -L https://github.com/rizface/uptime-monitoring/releases/download/${{inputs.version}}/${{inputs.version}} > uptime-monitoring && sudo chmod 744 /usr/local/bin/uptime-monitoring && sudo systemctl restart uptime-monitoring.service'
