@@ -34,9 +34,9 @@ jobs:
               --secret=${{secrets.CF_ACCESS_CLIENT_PASSWORD}}" \
             -i homelab_key \
             ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} << 'EOF'
-cd /usr/local/bin
-rm -f uptime-monitoring 2>/dev/null
-curl -L "https://github.com/rizface/uptime-monitoring/releases/download/${VERSION}/${VERSION}" -o uptime-monitoring
-sudo chmod 744 /usr/local/bin/uptime-monitoring
-sudo /usr/bin/systemctl restart uptime-monitoring.service
-EOF
+            'cd /usr/local/bin
+            rm -f uptime-monitoring 2>/dev/null
+            curl -L "https://github.com/rizface/uptime-monitoring/releases/download/${VERSION}/${VERSION}" -o uptime-monitoring
+            sudo chmod 744 /usr/local/bin/uptime-monitoring
+            sudo /usr/bin/systemctl restart uptime-monitoring.service
+            EOF'
