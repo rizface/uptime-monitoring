@@ -190,3 +190,9 @@ func (h *Handler) Healthcheck(c *fiber.Ctx) error {
 		"code":   http.StatusOK,
 	})
 }
+
+func (h *Handler) Version(c *fiber.Ctx) error {
+	return c.JSON(map[string]interface{}{
+		"code": "v0.0.4",
+	})
+}
