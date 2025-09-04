@@ -193,6 +193,6 @@ func (h *Handler) Healthcheck(c *fiber.Ctx) error {
 
 func (h *Handler) Version(c *fiber.Ctx) error {
 	return c.JSON(map[string]interface{}{
-		"code": "v0.0.4",
+		"code": "v0.0.5",
 	})
 }

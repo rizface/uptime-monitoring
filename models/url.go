@@ -2,19 +2,20 @@ package models
 
 import (
 	"time"
+
 	"gorm.io/gorm"
 )
 
 type URL struct {
-	ID           uint      `json:"id" gorm:"primaryKey"`
-	Name         string    `json:"name" gorm:"not null"`
-	URL          string    `json:"url" gorm:"not null;unique"`
-	Status       string    `json:"status" gorm:"default:unknown"`
-	CheckInterval int      `json:"check_interval" gorm:"default:300"`
-	LastChecked  *time.Time `json:"last_checked"`
-	ResponseTime int       `json:"response_time" gorm:"default:0"`
-	CreatedAt    time.Time `json:"created_at"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	ID            uint       `json:"id" gorm:"primaryKey"`
+	Name          string     `json:"name" gorm:"not null"`
+	URL           string     `json:"url" gorm:"not null;unique"`
+	Status        string     `json:"status" gorm:"default:unknown"`
+	CheckInterval int        `json:"check_interval" gorm:"default:300"`
+	LastChecked   *time.Time `json:"last_checked" gorm:"type:timestamptz"`
+	ResponseTime  int        `json:"response_time" gorm:"default:0"`
+	CreatedAt     time.Time  `json:"created_at" gorm:"type:timestamptz"`
+	UpdatedAt     time.Time  `json:"updated_at" gorm:"type:timestamptz"`
 }
 
 type URLRepository struct {
